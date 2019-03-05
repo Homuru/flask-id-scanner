@@ -17,19 +17,21 @@ chmod +x make.sh
 ***
 # Running
 - Follow setup to build the library 
-- download the ckpt file from [googl drive](https://drive.google.com/file/d/1HcZuB_MHqsKhKEKpfF1pEU85CYy4OlWO/view?usp=sharing) or [baidu yun](https://pan.baidu.com/s/1BNHt_9fiqRPGmEXPaxaFXw)
+- download the ckpt file from [google drive](https://drive.google.com/file/d/1HcZuB_MHqsKhKEKpfF1pEU85CYy4OlWO/view?usp=sharing)
 - put checkpoints_mlt/ in flask-id-scanner/
+- Install missing dependencies by yourself.
 - On the main folder, run this command
 
 ```shell
 python web.py
 ```
 
+
 - I have prepared some image in /data/demo for testing.
 
 
 ***
 # Demo result
-`NOTICE:` It still sucks **A LOT**, so please don't expect anything :(
+`NOTICE:` It still sucks **A LOT**, so please don't expect anything !!
 <img src="demo.png"/>
 
