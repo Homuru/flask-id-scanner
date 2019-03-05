@@ -221,7 +221,7 @@ def getAddress(result):
     fullString = ''
     for ele in temp:
         if(fullString != ''):
-            fullString = fullString + ', ' + ele
+            fullString = fullString + ' ' + ele
         else:
             fullString = fullString + ele
     print(f'Nơi thường trú:{ppAddress(fullString)}')
