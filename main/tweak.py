@@ -175,7 +175,7 @@ def getHome(result):
             result = result[1:]
         else:
             if(not 'Nơi' in result[1]):
-                string = result[0] + ', ' + result[1]
+                string = result[0] + ' ' + result[1]
                 # print(string)
                 print(f'Quê quán:{ppHome(string)}')
                 home = ppHome(string)
