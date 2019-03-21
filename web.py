@@ -8,15 +8,17 @@ import numpy as np
 import tensorflow as tf
 import flask
 from flask import Flask, request, redirect, url_for, flash, jsonify
+from flask_cors import CORS,cross_origin
 from main.tweak import getInformation
 from main.getTextArea import textDetection
-from time import sleep
+import json
 
 # res = getInformation('data/demo/CC8/CC8.jpg')
 # print(res)
 
 # Obtain the flask app object
 app = Flask(__name__, static_url_path="", static_folder="data")
+CORS(app)
 
 
 UPLOAD_FOLDER = 'data/demo'
@@ -41,13 +43,18 @@ def scan(filename):
 
 # scan('CC1.jpg')
 
-
 @app.route('/')
+@cross_origin()
 def index():
     return flask.render_template('index.html', has_result=False)
 
+@app.route('/test', methods = ['GET'])
+@cross_origin()
+def testing():
+    return "test"
 
 @app.route('/upload', methods=['POST'])
+@cross_origin()
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
@@ -69,8 +76,8 @@ def upload_file():
                 save_path, filename))
             result = scan(filename)
             result.update({'src':'/demo/' + fileFolder + '/' + filename})
-            return flask.render_template('result.html', result=result)
-            # return result
+            # return flask.render_template('result.html', result=result)
+            return jsonify(result)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port ='9000')
